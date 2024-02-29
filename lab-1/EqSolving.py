@@ -75,7 +75,7 @@ def simple_iteration_method(approx, epsilon):
         if abs(x - x1) < epsilon:
             break
 
-    return x1
+    return x
 
 
 print(f"Метод половинного ділення: {bisection_method(0, 4, 0.00001)}")
