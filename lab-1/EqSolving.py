@@ -62,6 +62,8 @@ def newton_method(start, epsilon):
         x = x1
         if abs(x - x1) < epsilon:
             break
+        if df(x) == 0:
+            return "division by zero"
 
     return x1
 
