@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 # our f(x)
 def func(x):
     return 3**x - x**3 - 3
