@@ -5,6 +5,7 @@ def cubic_spline_coefficients(x, y):
     n = len(x)
     h = np.diff(x)
 
+    # запис індексів матриць через кому в numpy ідентичний звичайному matrix[i][i-1]
     matrix = np.zeros((n, n))
     matrix[0, 0] = 1
     matrix[-1, -1] = 1
@@ -14,15 +15,14 @@ def cubic_spline_coefficients(x, y):
         matrix[i, i] = 2 * (h[i - 1] + h[i])
         matrix[i, i + 1] = h[i]
 
-    # Calculate the right-hand side vector
+
     rhs = np.zeros(n)
     for i in range(1, n - 1):
         rhs[i] = 3 * ((y[i + 1] - y[i]) / h[i] - (y[i] - y[i - 1]) / h[i - 1])
 
-    # Solve for the second derivatives
     second_derivatives = np.linalg.solve(matrix, rhs)
 
-    # Calculate the coefficients of the cubic splines
+    # формули коефіцієнтів сплайну з відкритих джерел
     coefficients = []
     for i in range(n - 1):
         a = y[i]
@@ -55,7 +55,7 @@ for i, coef in enumerate(coefficients):
 
 def count_value(x):
     if -2.2 <= x <= -1.2:
-        return -0.271 - 0.221*(x + 2.2) + 0.000*(x - -2.2)**2 + 0.124*(x + 2.2)**3
+        return -0.271 - 0.221*(x + 2.2) + 0.000*(x + 2.2)**2 + 0.124*(x + 2.2)**3
     elif -1.2 <= x <= -0.2:
         return -0.368 + 0.150*(x + 1.2) + 0.371*(x + 1.2)**2 - 0.152*(x + 1.2)**3
     elif -0.2 <= x <= 0.8:
