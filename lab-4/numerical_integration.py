@@ -41,7 +41,7 @@ def simpson_method(h):
 
 
 def runge_check(result_h, result_half_h, p):
-    result = result_half_h - (result_half_h - result_h)/(2**p - 1)
+    result = result_half_h + (result_half_h - result_h)/(2**p - 1)
     return result
 
 
