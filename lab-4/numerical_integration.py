@@ -6,7 +6,7 @@ x1 = 7.5
 x2 = 9.5
 h1 = 0.5
 h2 = 0.25
-global_result = 6165.7819
+# result: 6165.7819
 
 
 def f(x):
