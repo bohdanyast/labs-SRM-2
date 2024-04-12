@@ -56,6 +56,6 @@ print(rectangular_method(h2), trapezoidal_method(h2), simpson_method(h2), sep="\
 print("-"*20)
 
 print("Уточнення Рунге з кроками h i h/2")
-print(f"Метод прямокутників: {runge_check(rectangular_method(h1), rectangular_method(h2), 4)}")
-print(f"Метод трапецій: {runge_check(trapezoidal_method(h1), trapezoidal_method(h2), 4)}")
+print(f"Метод прямокутників: {runge_check(rectangular_method(h1), rectangular_method(h2), 2)}")
+print(f"Метод трапецій: {runge_check(trapezoidal_method(h1), trapezoidal_method(h2), 2)}")
 print(f"Метод Сімпсона: {runge_check(simpson_method(h1), simpson_method(h2), 4)}")
