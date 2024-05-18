@@ -20,7 +20,9 @@ def jacobi_matrix(x, a):
 def newton_method(x0, a, eps):
     x = x0.copy()
     while True:
-        dx = np.linalg.solve(jacobi_matrix(x0, a), -system(x, a))
+        f = system(x, a)
+        jacobian_inv = np.linalg.inv(jacobi_matrix(x, a))
+        dx = np.dot(jacobian_inv, -f)
         x += dx
         if np.linalg.norm(dx) < eps:
             break
@@ -33,6 +35,7 @@ def simple_iteration_method(x0, a, eps):
         x1_next = np.sqrt(1 + 2 * np.log10(x[1]))
         x2_next = (x[0]**2 + a) / (a * x[0])
         x_next = np.array([x1_next, x2_next])
+        print(x_next)
         if abs(np.linalg.norm(x - x_next)) < eps:
             break
         x = x_next
