@@ -35,14 +35,13 @@ def simple_iteration_method(x0, a, eps):
         x1_next = np.sqrt(1 + 2 * np.log10(x[1]))
         x2_next = (x[0]**2 + a) / (a * x[0])
         x_next = np.array([x1_next, x2_next])
-        print(x_next)
         if abs(np.linalg.norm(x - x_next)) < eps:
             break
         x = x_next
     return x
 
 
-x0 = np.array([1.5, 1.5], dtype=float)
+x0 = np.array([2, 2], dtype=float)
 eps = 0.00001
 a = 6
 
